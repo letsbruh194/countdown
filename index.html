@@ -18,6 +18,7 @@
     <script>
         function countdown(targetDate, timerId) {
             const target = new Date(targetDate).getTime();
+            console.log('Target date for', timerId, ':', targetDate);
 
             const x = setInterval(function() {
                 const now = new Date().getTime();
@@ -28,6 +29,8 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+                console.log('Updating', timerId, ':', days, 'd', hours, 'h', minutes, 'm', seconds, 's');
+
                 document.getElementById(timerId).innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
                 if (distance < 0) {
@@ -37,8 +40,8 @@
             }, 1000);
         }
 
-        countdown("July 14, 2024 20:30:00", "Showtime!!!");
-        countdown("July 31, 2024 00:00:00", "Secret ;)");
+        countdown("July 14, 2024 00:00:00", "timer1");
+        countdown("July 31, 2024 00:00:00", "timer2");
     </script>
 </body>
 </html>
